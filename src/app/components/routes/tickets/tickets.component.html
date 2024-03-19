@@ -1,0 +1,43 @@
+<div *ngFor="let ticket of tickets | async">
+    <div ngbAccordion>
+        <div ngbAccordionItem>
+        <h2 ngbAccordionHeader>
+            <button ngbAccordionButton>{{ticket.from}} ({{ticket.departure | date: 'dd.MM.yyyy. HH:mm'}}) - {{ticket.to}} ({{ticket.arrival | date: 'dd.MM.yyyy. HH:mm'}})</button>
+        </h2>
+        <div ngbAccordionCollapse>
+            <div ngbAccordionBody>
+            <ng-template>
+                <div class="grid grid-rows-[1fr,auto] gap-3">
+                    <div class="grid grid-cols-6">
+                        <table class="w-full col-span-5">
+                            <tr class="border-b border-b-slate-200">
+                                <th>Train number</th>
+                                <td>{{ticket.number}}</td>
+                            </tr>
+                            <tr class="border-b border-b-slate-200">
+                                <th>Price</th>
+                                <td>{{ticket.price}}rsd</td>
+                            </tr>
+                            <tr class="border-b border-b-slate-200">
+                                <th>Name</th>
+                                <td>{{ticket.name}}</td>
+                            </tr>
+                            <tr class="border-b border-b-slate-200">
+                                <th>Birth data</th>
+                                <td>{{ticket.birthDate | date: 'dd.MM.yyyy'}}</td>
+                            </tr>
+                        </table>
+                        <figure class="flex justify-center items-center">
+                            <img src="../../../../assets/images/qr.png" alt="qrCode">
+                        </figure>
+                    </div>
+                    <div>
+                        <button (click)="onDeleteTicket(ticket._id)" class="bg-red-500 text-white px-3 py-2 rounded-md">Cancel</button>
+                    </div>
+                </div>
+            </ng-template>
+            </div>
+        </div>
+        </div>
+    </div>
+</div>

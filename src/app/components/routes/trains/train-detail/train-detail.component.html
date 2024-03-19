@@ -1,0 +1,24 @@
+<ng-container *ngIf="train | async as trainData">
+    <div class="w-[50%] mx-auto flex flex-col gap-2">
+        <h2 class="text-start font-bold">Station list for train {{trainData.number}}</h2>
+        <table class="w-full">
+            <thead>
+                <tr class="bg-black text-white">
+                    <th class="p-3">Stations</th>
+                    <th class="border-l border-l-slate-400  border-r border-r-slate-400  ">Arrival</th>
+                    <th>Departure</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let station of trainData.stations">
+                   <td class="text-center border border-slate-400 p-2">{{station.name}}</td>
+                   <td class="text-center border border-slate-400 p-2">{{station.arrival | date: 'HH:mm'}}</td>
+                   <td class="text-center border border-slate-400 p-2">{{station.departure | date: 'HH:mm'}}</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="flex justify-center">
+            <button routerLink="/tickets-buy/{{trainData._id}}" class="bg-red-500 text-white px-3 py-2 rounded-md">Buy ticket</button>
+        </div>
+    </div>
+</ng-container>

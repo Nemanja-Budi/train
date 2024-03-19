@@ -1,0 +1,108 @@
+<form [formGroup]="ticketForm" (ngSubmit)="onSubmit()" class="px-2 w-[70%] mx-auto flex flex-col gap-2">
+
+    <div class="flex flex-col">
+        <label for="number" class="text-lg">Train number</label>
+        <input 
+            class="border-2 p-2 rounded-md" 
+            type="number" 
+            id="number" 
+            formControlName="number" 
+            required 
+            autocomplete="off"
+            [readonly]="editingMode">
+    </div>
+
+    <div class="grid grid-cols-2 gap-5">
+        <div class="flex flex-col">
+            <label for="from" class="text-lg">From</label>
+            <input 
+                class="border-2 p-2 rounded-md" 
+                type="text" 
+                id="from" 
+                formControlName="from" 
+                required 
+                autocomplete="off"
+                [readonly]="editingMode">
+        </div>
+        <div class="flex flex-col">
+            <label for="departure" class="text-lg">Departure</label>
+            <input 
+                class="border-2 p-2 rounded-md" 
+                type="datetime-local" 
+                id="departure" 
+                formControlName="departure" 
+                required 
+                autocomplete="off"
+                [readonly]="editingMode">
+        </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-5">
+        <div class="flex flex-col">
+            <label for="to" class="text-lg">To</label>
+            <input 
+                class="border-2 p-2 rounded-md" 
+                type="text" 
+                id="to" 
+                formControlName="to" 
+                required 
+                autocomplete="off"
+                [readonly]="editingMode">
+        </div>
+        <div class="flex flex-col">
+            <label for="arrival" class="text-lg">Arrival</label>
+            <input 
+                class="border-2 p-2 rounded-md" 
+                type="datetime-local" 
+                id="arrival" 
+                formControlName="arrival" 
+                required 
+                autocomplete="off"
+                [readonly]="editingMode">
+        </div>
+    </div>
+
+    <div class="flex flex-col">
+        <label for="price" class="text-lg">Price</label>
+        <input 
+            class=" border-2 p-2 rounded-md" 
+            type="number" 
+            id="price" 
+            formControlName="price" 
+            required 
+            autocomplete="off"
+            [readonly]="editingMode">
+    </div>
+
+    <div class="flex flex-col">
+        <label for="name" class="text-lg">Name</label>
+        <input 
+            class="border-2 p-2 rounded-md" 
+            type="text" 
+            id="name" 
+            formControlName="name" 
+            required 
+            autocomplete="off">
+    </div>
+
+    <div class="flex flex-col">
+        <label for="birthDate" class="text-lg">Birth Date</label>
+        <input 
+            class="border-2 p-2 rounded-md" 
+            type="date" 
+            id="birthDate" 
+            formControlName="birthDate" 
+            required 
+            autocomplete="off">
+    </div>
+
+    <div class="flex justify-center">
+        <button 
+            class="text-white px-5 py-2 rounded-md bg-red-300" 
+            type="submit"
+            [disabled]="!ticketForm.valid"
+            [ngStyle]="{'background-color':  !ticketForm.valid ? '' : '#EF4444' }">
+            Buy ticket
+        </button>
+    </div>
+</form>

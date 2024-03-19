@@ -1,0 +1,16 @@
+<div class="grid grid-rows-2 py-2">
+    <div>
+        <label for="from">From</label>
+        <select class="w-full border border-slate-200 p-1 rounded-md" name="from" id="from" #selectFrom (change)="onGetSelectFrom(selectFrom.value)">
+            <option value="">Any</option>
+            <option value="{{station.name}}" *ngFor="let station of stations | async">{{station.name}}</option>
+        </select>
+    </div>
+    <div>
+        <label for="to">To</label>
+        <select class="w-full border border-slate-200 p-1 rounded-md" name="to" id="to" #selectTo (change)="onGetSelectTo(selectTo.value)">
+            <option value="">Any</option>
+            <option value="{{station.name}}" *ngFor="let station of stations | async">{{station.name}}</option>
+        </select>
+    </div>
+</div>
